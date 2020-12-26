@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import useSound from 'use-sound';
-import flip from './flip.mp3';
+import flip from './assets/flip.mp3';
 import './Cell.css';
 
 /** A single cell on the board.

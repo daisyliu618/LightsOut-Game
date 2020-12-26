@@ -1,20 +1,28 @@
 import React from 'react';
+import goeasy from './assets/goeasy.mp3';
+import dreams from './assets/dreams.mp3';
+import chillout from './assets/chillout.mp3';
+import twistter from './assets/twistter.mp3';
+import freebird from './assets/freebird.mp3';
+import love from './assets/love.mp3';
+import morningdew from './assets/morningdew.mp3';
+import thelounge  from './assets/thelounge.mp3';
 import './Music.css';
 
-const goeasy = 'https://www.mboxdrive.com/bensound-acousticbreeze.mp3';
-const dreams = 'https://www.mboxdrive.com/bensound-thejazzpiano.mp3';
+// const goeasy = 'https://www.mboxdrive.com/bensound-acousticbreeze.mp3';
+// const dreams = 'https://www.mboxdrive.com/bensound-thejazzpiano.mp3';
 
-const chillout = 'https://www.mboxdrive.com/bensound-theelevatorbossanova.mp3';
+// const chillout = 'https://www.mboxdrive.com/bensound-theelevatorbossanova.mp3';
 
-const twistter = 'https://www.mboxdrive.com/bensound-romantic.mp3';
+// const twistter = 'https://www.mboxdrive.com/bensound-romantic.mp3';
 
-const freebird = 'https://www.mboxdrive.com/bensound-jazzyfrenchy.mp3';
+// const freebird = 'https://www.mboxdrive.com/bensound-jazzyfrenchy.mp3';
 
-const love = 'https://www.mboxdrive.com/bensound-memories.mp3';
+// const love = 'https://www.mboxdrive.com/bensound-memories.mp3';
 
-const morningdew = 'https://www.mboxdrive.com/bensound-hipjazz.mp3';
+// const morningdew = 'https://www.mboxdrive.com/bensound-hipjazz.mp3';
 
-const thelounge = 'https://www.mboxdrive.com/bensound-thelounge.mp3';
+// const thelounge = 'https://www.mboxdrive.com/bensound-thelounge.mp3';
 
 const songID = [
     {
