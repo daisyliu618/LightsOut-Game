@@ -1,29 +1,60 @@
+
 .App {
-  text-align: center;
-  display: flex;
-  align-items:center;
-  justify-content: center;
-  flex-wrap: wrap;
-  height:100vh;
-  text-align: "center";
+    text-align: center;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-wrap: wrap;
+    height: 100vh;
+    text-align: 'center';
 }
 
 body {
-  font-family: "Open Sans";
+    font-family: 'Open Sans';
 }
 
-.display {
-  display: flex;
-  align-items:flex-end;
+.Display {
+    width: 100%;
+    display: flex;
+    align-items: flex-end;
+    justify-content: space-around;
+}
+
+.Instruction {
+    align-self: baseline;
+    opacity: 0.3;
+    font-size: 1rem;
+}
+
+.Instruction:hover {
+    opacity: 1;
 }
 
 
-.instruction {
-  align-self: baseline;
-  opacity: 0.3;
-  font-size: 1rem;
+@media screen and (max-width: 767px) {
+    .Display {
+        display: block;
+        margin-bottom: 2rem;
+    }
+    
+    .main-container {
+        margin: auto !important;
+    }
+    .Instruction {
+        padding: 2rem;
+    }
 }
 
-.instruction:hover {
-  opacity: 1;
+@media screen and (max-width: 480px) {
+    body {
+        padding: 0.5rem;
+    }
+    .BoardDisplay {
+        margin-bottom: 3rem;
+    }
+
+    .Board-title {
+        font-size: 4rem;
+    }
+
 }

@@ -1,6 +1,7 @@
-import React, {Component} from 'react'
-import "./Cell.css"
-
+import React, { useState } from 'react';
+import useSound from 'use-sound';
+import flip from './flip.mp3';
+import './Cell.css';
 
 /** A single cell on the board.
  *
@@ -15,25 +16,25 @@ import "./Cell.css"
  *
  **/
 
-class Cell extends Component {
-  constructor(props) {
-    super(props);
-    this.handleClick = this.handleClick.bind(this);
-  }
+function Cell(props) {
+    // constructor(props) {
+    //   super(props);
+    //   this.handleClick = this.handleClick.bind(this);
+    // };
+    const [play] = useSound(flip);
 
-  handleClick(evt) {
-    // call up to the board to flip cells around this cell
-    this.props.flipCellsAroundMe();
-  }
+    const handleClick = (evt) => {
+        // call up to the board to flip cells around this cell
 
-  render() {
-    let classes = "Cell" + (this.props.isLit ? " Cell-lit" : "");
+        play();
+        props.flipCellsAroundMe();
+    };
 
-    return (
-        <td className={classes} onClick={this.handleClick} />
-    )
-  }
+    // render() {
+    let classes = 'Cell' + (props.isLit ? ' Cell-lit' : '');
+
+    return <td className={classes} onClick={handleClick} />;
+    // }
 }
 
-
-export default Cell
+export default Cell;
