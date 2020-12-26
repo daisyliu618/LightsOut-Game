@@ -1,7 +1,7 @@
 import React from "react";
 import "./Music.css";
 
-const goeasy = "http://www.largesound.com/ashborytour/sound/AshboryBYU.mp3";
+const goeasy = "https://www.mboxdrive.com/bensound-acousticbreeze.mp3";
 const dreams = "https://www.mboxdrive.com/bensound-thejazzpiano.mp3";
 
 const chillout =
@@ -13,7 +13,7 @@ const twistter =
 const freebird =
   "https://www.mboxdrive.com/bensound-jazzyfrenchy.mp3";
 
-const love = "https://www.mboxdrive.com/bensound-love.mp3";
+const love = "https://www.mboxdrive.com/bensound-memories.mp3";
 
 const morningdew = "https://www.mboxdrive.com/bensound-hipjazz.mp3";
 
@@ -65,7 +65,7 @@ class Music extends React.Component {
         {
           id: 4,
           title: "Twistter",
-          url: "https://i.ytimg.com/vi/VJ52yJwN_K0/maxresdefault.jpg"
+          url: "https://ss1.bdstatic.com/70cFvXSh_Q1YnxGkpoWK1HF6hhy/it/u=1407161403,1267423408&fm=26&gp=0.jpg"
         },
         {
           id: 5,
@@ -75,16 +75,16 @@ class Music extends React.Component {
         },
         {
             id: 6,
-            title: "  Love",
+            title: "Love",
             url:
-            "https://miro.medium.com/max/1880/1*OEnS6-DEn56szCwdOs2mrA.jpeg"
+            "https://ss0.bdstatic.com/70cFvHSh_Q1YnxGkpoWK1HF6hhy/it/u=1108304347,2567589749&fm=26&gp=0.jpg"
           },
 
           {
             id: 7,
             title: "Morning Dew",
             url:
-            "https://4.bp.blogspot.com/-uoRLD4xLtAA/Wu4EtbgR24I/AAAAAAAALYY/KYX7vDFy4LUHcMFxXYATKWc-TAQFpLO9gCLcBGAs/s1600/morning_dew.jpg"
+            "https://ss2.bdstatic.com/70cFvnSh_Q1YnxGkpoWK1HF6hhy/it/u=2255898899,2917333309&fm=26&gp=0.jpg"
           },
 
           {
