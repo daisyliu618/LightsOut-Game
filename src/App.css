@@ -1,0 +1,29 @@
+.App {
+  text-align: center;
+  display: flex;
+  align-items:center;
+  justify-content: center;
+  flex-wrap: wrap;
+  height:100vh;
+  text-align: "center";
+}
+
+body {
+  font-family: "Open Sans";
+}
+
+.display {
+  display: flex;
+  align-items:flex-end;
+}
+
+
+.instruction {
+  align-self: baseline;
+  opacity: 0.3;
+  font-size: 1rem;
+}
+
+.instruction:hover {
+  opacity: 1;
+}
