@@ -98,16 +98,16 @@ class Music extends React.Component {
     render() {
         const currentTime = getTime(this.state.currentTime);
         const duration = getTime(this.state.duration);
-        const playlist = songID.map((item) => {
+        const playlist = songID.map((item, index) => {
             return (
-                <div class="ui list">
-                    <div class="item">
+                <div className="ui list" key={index}>
+                    <div className="item">
                         <img
-                            class="ui avatar image"
+                            className="ui avatar image"
                             src={item.url}
                             alt="music images"
                         />
-                        <div class="content">
+                        <div className="content">
                             <li
                                 className="title"
                                 key={item.id}

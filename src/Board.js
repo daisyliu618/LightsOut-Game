@@ -12,18 +12,16 @@ function Board(props) {
     // };
 
     let { nrows = 5, ncols = 5, chanceLightStartsOn = 0.25 } = props;
-    const [hasWon, sethasWon] = useState(false);
-    useEffect(() => { createBoard() }, []);
-    
-    // const [board, setboard] = useState(createBoard());
+    const [hasWon, setHasWon] = useState(false);
+    const [board, setBoard] = useState([]);
 
     //   state = {
     //         hasWon: false,
     //         board: this.createBoard(),
     //     };
-
-
+    
     const createBoard = () => {
+        
         let board = [];
         for (let y = 0; y < nrows; y++) {
             let row = [];
@@ -34,15 +32,21 @@ function Board(props) {
         }
         return board;
     };
+    
+    useEffect(()=>{
+        setBoard(createBoard())
+    },[])
+
 
     const flipCellsAround = (coord) => {
-        let { ncols, nrows } = this.props;
-        let board = this.state.board;
+        // let { ncols, nrows } = this.props;
+        let _board = [...board];
         let [y, x] = coord.split('-').map(Number);
+        console.log(coord,y, x);
 
         function flipCell(y, x) {
             if (x >= 0 && x < ncols && y >= 0 && y < nrows) {
-                board[y][x] = !board[y][x];
+                _board[y][x] = !_board[y][x];
             }
         }
         flipCell(y, x);
@@ -51,27 +55,37 @@ function Board(props) {
         flipCell(y - 1, x);
         flipCell(y + 1, x);
 
-        let hasWon = board.every((row) => row.every((cell) => !cell));
-        this.setState({ board: board, hasWon: hasWon });
+        let hasWon = _board.every((row) => row.every((cell) => !cell));
+        // this.setState({ board: board, hasWon: hasWon });
+        setBoard(_board);
+        setHasWon(hasWon);
     };
 
 
     const makeTable = () => {
+        if(board.length === 0){
+            return;
+        } 
         let tblBoard = [];
-        for (let y = 0; y < props.nrows; y++) {
+        for (let y = 0; y < nrows; y++) {
             let row = [];
-            for (let x = 0; x < props.ncols; x++) {
+            for (let x = 0; x < ncols; x++) {
                 let coord = `${y}-${x}`;
                 row.push(
                     <Cell
                         key={coord}
-                        isLit={this.state.board[y][x]}
-                        flipCellsAroundMe={() => this.flipCellsAround(coord)}
+                        isLit={board[y][x]}
+                        flipCellsAroundMe={() => flipCellsAround(coord)}
                     />
                 );
             }
             tblBoard.push(<tr key={y}>{row}</tr>);
         }
+
+        console.log(tblBoard);
+        console.log(nrows);
+
+
         return (
             <table className="Board">
                 <tbody>{tblBoard}</tbody>
@@ -87,9 +101,9 @@ function Board(props) {
 
     return (
         <div className="BoardDisplay">
-            {this.state.hasWon? (
+            {hasWon? (
                 <div
-                    className="winner"
+                    className="Winner"
                     onMouseEnter={() => {
                         setIsHovering(true);
                         play();

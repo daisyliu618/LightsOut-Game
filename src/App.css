@@ -41,6 +41,17 @@ body {
     .Instruction {
         padding: 2rem;
     }
+
+
+    .Board-title {
+        font-size: 4rem;
+    }
+
+    .Winner > * {
+        font-size: 4rem !important;
+    }
+
+
 }
 
 @media screen and (max-width: 480px) {
@@ -51,7 +62,5 @@ body {
         margin-bottom: 3rem;
     }
 
-    .Board-title {
-        font-size: 4rem;
-    }
+
 }

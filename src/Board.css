@@ -50,8 +50,8 @@ table tr:last-child td:last-child {
     -o-animation: neon-blue 2s linear infinite;
 }
 
-.winner .neon-blue,
-.winner .neon-orange {
+.Winner .neon-blue,
+.Winner .neon-orange {
     font-size: 200px;
 }
 
