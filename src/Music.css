@@ -1,6 +1,5 @@
 @import url('https://fonts.googleapis.com/css2?family=Play&display=swap');
 
-
 .ui.card.main-container {
     color: black;
     background: #1cd8df;
@@ -53,5 +52,3 @@
     flex-wrap: wrap;
     justify-content: space-between;
 }
-
-

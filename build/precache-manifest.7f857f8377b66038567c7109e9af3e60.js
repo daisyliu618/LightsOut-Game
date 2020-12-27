@@ -1,23 +1,27 @@
 self.__precacheManifest = [
   {
-    "revision": "9d806ea65b7043836a93",
-    "url": "/static/css/main.015916f2.chunk.css"
+    "revision": "a2281cd16502b1a3e9f9",
+    "url": "/static/css/main.06018514.chunk.css"
   },
   {
-    "revision": "9d806ea65b7043836a93",
-    "url": "/static/js/main.9d806ea6.chunk.js"
+    "revision": "a2281cd16502b1a3e9f9",
+    "url": "/static/js/main.a2281cd1.chunk.js"
   },
   {
-    "revision": "85ca97b23f4919cc4cf5",
-    "url": "/static/js/1.85ca97b2.chunk.js"
+    "revision": "cd2cb3f66e67d3176e24",
+    "url": "/static/js/1.cd2cb3f6.chunk.js"
   },
   {
-    "revision": "f142cb97dd5e277d0755",
-    "url": "/static/js/2.f142cb97.chunk.js"
+    "revision": "7f5dc03527cac13f6b60",
+    "url": "/static/js/2.7f5dc035.chunk.js"
   },
   {
-    "revision": "185828960f1507369d21",
-    "url": "/static/js/runtime~main.18582896.js"
+    "revision": "ce9b72875e157718d53b",
+    "url": "/static/js/runtime~main.ce9b7287.js"
+  },
+  {
+    "revision": "25f806497314c543d72b8c2b1fd3e878",
+    "url": "/static/media/cheering.25f80649.mp3"
   },
   {
     "revision": "e70852f0b33ac6b6caab034294df4ae4",
@@ -56,7 +60,7 @@ self.__precacheManifest = [
     "url": "/static/media/thelounge.25478905.mp3"
   },
   {
-    "revision": "bbe3e8e527f56c81dd0d3dd698b37c44",
+    "revision": "dd1f0c3219706c151f79b47be691112b",
     "url": "/index.html"
   }
 ];

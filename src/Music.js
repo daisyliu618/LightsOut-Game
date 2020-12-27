@@ -6,7 +6,7 @@ import twistter from './assets/twistter.mp3';
 import freebird from './assets/freebird.mp3';
 import love from './assets/love.mp3';
 import morningdew from './assets/morningdew.mp3';
-import thelounge  from './assets/thelounge.mp3';
+import thelounge from './assets/thelounge.mp3';
 import './Music.css';
 
 // const goeasy = 'https://www.mboxdrive.com/bensound-acousticbreeze.mp3';
@@ -125,64 +125,68 @@ class Music extends React.Component {
 
         return (
             <div className="MusicDisplay">
-            <div className="ui card main-container">
-                <div className="info-container">
-                    {this.state.music === 'playing' ? (
-                        <div className="current-song">
-                            Now Playing {this.state.currentSong}
-                        </div>
-                    ) : (
-                        <div className="current-song">Choose Your Song</div>
-                    )}
-                    {this.state.music === 'paused' ? (
-                        <div className="current-song">
-                            {this.state.currentSong} is paused{' '}
-                        </div>
-                    ) : null}
-                    {this.state.music === 'playing' ||
-                    this.state.music === 'paused' ? (
-                        <div>
-                            {currentTime} / {duration}
-                        </div>
-                    ) : (
-                        ''
-                    )}
-                </div>
-                <div className="button-container">
-                    {this.state.music === 'paused' && (
-                        <button
-                            class="ui labeled icon secondary basic button"
-                            onClick={() => this.setState({ music: 'playing' })}
-                        >
-                            <i class=" large play circle outline icon" />
-                            Play
-                        </button>
-                    )}
-                    {this.state.music === 'playing' && (
-                        <button
-                            class="ui labeled icon secondary basic button"
-                            onClick={() => this.setState({ music: 'paused' })}
-                        >
-                            <i class="large pause circle outline icon" />
-                            Pause
-                        </button>
-                    )}
-                    {this.state.music === 'playing' ||
-                    this.state.music === 'paused' ? (
-                        <button
-                            class="ui labeled icon secondary basic button"
-                            onClick={() => this.setState({ music: 'stop' })}
-                        >
-                            <i class="large stop circle outline icon" />
-                            Stop
-                        </button>
-                    ) : null}
-                </div>
+                <div className="ui card main-container">
+                    <div className="info-container">
+                        {this.state.music === 'playing' ? (
+                            <div className="current-song">
+                                Now Playing {this.state.currentSong}
+                            </div>
+                        ) : (
+                            <div className="current-song">Choose Your Song</div>
+                        )}
+                        {this.state.music === 'paused' ? (
+                            <div className="current-song">
+                                {this.state.currentSong} is paused{' '}
+                            </div>
+                        ) : null}
+                        {this.state.music === 'playing' ||
+                        this.state.music === 'paused' ? (
+                            <div>
+                                {currentTime} / {duration}
+                            </div>
+                        ) : (
+                            ''
+                        )}
+                    </div>
+                    <div className="button-container">
+                        {this.state.music === 'paused' && (
+                            <button
+                                class="ui labeled icon secondary basic button"
+                                onClick={() =>
+                                    this.setState({ music: 'playing' })
+                                }
+                            >
+                                <i class=" large play circle outline icon" />
+                                Play
+                            </button>
+                        )}
+                        {this.state.music === 'playing' && (
+                            <button
+                                class="ui labeled icon secondary basic button"
+                                onClick={() =>
+                                    this.setState({ music: 'paused' })
+                                }
+                            >
+                                <i class="large pause circle outline icon" />
+                                Pause
+                            </button>
+                        )}
+                        {this.state.music === 'playing' ||
+                        this.state.music === 'paused' ? (
+                            <button
+                                class="ui labeled icon secondary basic button"
+                                onClick={() => this.setState({ music: 'stop' })}
+                            >
+                                <i class="large stop circle outline icon" />
+                                Stop
+                            </button>
+                        ) : null}
+                    </div>
 
-                <div className="playlist">{playlist}</div>
+                    <div className="playlist">{playlist}</div>
 
-                <audio ref={(ref) => (this.music = ref)} />
-            </div>
+                    <audio ref={(ref) => (this.music = ref)} />
+                </div>
             </div>
         );
     }

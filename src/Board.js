@@ -1,73 +1,46 @@
-import React, { Component } from 'react';
+import React, { useState, useEffect} from 'react';
+import useSound from 'use-sound';
+import cheering from './assets/cheering.mp3';
 import Cell from './Cell';
 import './Board.css';
 
-/** Game board of Lights out.
- *
- * Properties:
- *
- * - nrows: number of rows of board
- * - ncols: number of cols of board
- * - chanceLightStartsOn: float, chance any cell is lit at start of game
- *
- * State:
- *
- * - hasWon: boolean, true when board is all off
- * - board: array-of-arrays of true/false
- *
- *    For this board:
- *       .  .  .
- *       O  O  .     (where . is off, and O is on)
- *       .  .  .
- *
- *    This would be: [[f, f, f], [t, t, f], [f, f, f]]
- *
- *  This should render an HTML table of individual <Cell /> components.
- *
- *  This doesn't handle any clicks --- clicks are on individual cells
- *
- **/
+function Board(props) {
+    // static defaultProps = {
+    //     nrows: 5,
+    //     ncols: 5,
+    //     chanceLightStartsOn: 0.25,
+    // };
 
-class Board extends Component {
-    static defaultProps = {
-        nrows: 5,
-        ncols: 5,
-        chanceLightStartsOn: 0.25,
-    };
+    let { nrows = 5, ncols = 5, chanceLightStartsOn = 0.25 } = props;
+    const [hasWon, sethasWon] = useState(false);
+    useEffect(() => { createBoard() }, []);
+    
+    // const [board, setboard] = useState(createBoard());
 
-    constructor(props) {
-        super(props);
-        this.state = {
-            hasWon: false,
-            board: this.createBoard(),
-        };
-    }
+    //   state = {
+    //         hasWon: false,
+    //         board: this.createBoard(),
+    //     };
 
-    /** create a board nrows high/ncols wide, each cell randomly lit or unlit */
 
-    createBoard() {
+    const createBoard = () => {
         let board = [];
-        // TODO: create array-of-arrays of true/false values
-        for (let y = 0; y < this.props.nrows; y++) {
+        for (let y = 0; y < nrows; y++) {
             let row = [];
-            for (let x = 0; x < this.props.ncols; x++) {
-                row.push(Math.random() < this.props.chanceLightStartsOn);
+            for (let x = 0; x < ncols; x++) {
+                row.push(Math.random() < chanceLightStartsOn);
             }
             board.push(row);
         }
         return board;
-    }
+    };
 
-    /** handle changing a cell: update board & determine if winner */
-
-    flipCellsAround(coord) {
+    const flipCellsAround = (coord) => {
         let { ncols, nrows } = this.props;
         let board = this.state.board;
         let [y, x] = coord.split('-').map(Number);
 
         function flipCell(y, x) {
-            // if this coord is actually on board, flip it
-
             if (x >= 0 && x < ncols && y >= 0 && y < nrows) {
                 board[y][x] = !board[y][x];
             }
@@ -78,21 +51,16 @@ class Board extends Component {
         flipCell(y - 1, x);
         flipCell(y + 1, x);
 
-        // TODO: flip this cell and the cells around it
-
-        // win when every cell is turned off
-        // TODO: determine is the game has been won
-
         let hasWon = board.every((row) => row.every((cell) => !cell));
         this.setState({ board: board, hasWon: hasWon });
-    }
+    };
 
-    makeTable() {
-        console.log('maketable');
+
+    const makeTable = () => {
         let tblBoard = [];
-        for (let y = 0; y < this.props.nrows; y++) {
+        for (let y = 0; y < props.nrows; y++) {
             let row = [];
-            for (let x = 0; x < this.props.ncols; x++) {
+            for (let x = 0; x < props.ncols; x++) {
                 let coord = `${y}-${x}`;
                 row.push(
                     <Cell
@@ -109,30 +77,43 @@ class Board extends Component {
                 <tbody>{tblBoard}</tbody>
             </table>
         );
-    }
+    };
+
+    const [play, { stop }] = useSound(cheering, { volume: 0.5 });
+
+    const [isHovering, setIsHovering] = useState(false);
 
     /** Render game board or winning message. */
 
-    render() {
-        return (
-            <div className="BoardDisplay">
-                {this.state.hasWon ? (
-                    <div className="winner">
-                        <span className=" neon-blue">YOU</span>
-                        <span className=" neon-orange">WIN! </span>
+    return (
+        <div className="BoardDisplay">
+            {this.state.hasWon? (
+                <div
+                    className="winner"
+                    onMouseEnter={() => {
+                        setIsHovering(true);
+                        play();
+                    }}
+                    onMouseLeave={() => {
+                        setIsHovering(false);
+                        stop();
+                    }}
+                    isHovering={isHovering}
+                >
+                    <span className=" neon-blue">YOU</span>
+                    <span className=" neon-orange">WIN! </span>
+                </div>
+            ) : (
+                <div>
+                    <div className="Board-title">
+                        <div className=" neon-orange">Lights </div>
+                        <div className=" neon-blue">Out </div>
                     </div>
-                ) : (
-                    <div>
-                        <div className="Board-title">
-                            <div className=" neon-orange">Lights </div>
-                            <div className=" neon-blue">Out </div>
-                        </div>
-                        {this.makeTable()}
-                    </div>
-                )}
-            </div>
-        );
-    }
+                    {makeTable()}
+                </div>
+            )}
+        </div>
+    );
 }
 
 export default Board;
