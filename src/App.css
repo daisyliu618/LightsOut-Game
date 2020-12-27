@@ -42,7 +42,6 @@ body {
         padding: 2rem;
     }
 
-
     .Board-title {
         font-size: 4rem;
     }
@@ -50,8 +49,6 @@ body {
     .Winner > * {
         font-size: 4rem !important;
     }
-
-
 }
 
 @media screen and (max-width: 480px) {
@@ -61,6 +58,4 @@ body {
     .BoardDisplay {
         margin-bottom: 3rem;
     }
-
-
 }

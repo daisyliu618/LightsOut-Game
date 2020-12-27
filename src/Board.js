@@ -1,4 +1,4 @@
-import React, { useState, useEffect} from 'react';
+import React, { useState, useEffect } from 'react';
 import useSound from 'use-sound';
 import cheering from './assets/cheering.mp3';
 import Cell from './Cell';
@@ -19,9 +19,8 @@ function Board(props) {
     //         hasWon: false,
     //         board: this.createBoard(),
     //     };
-    
+
     const createBoard = () => {
-        
         let board = [];
         for (let y = 0; y < nrows; y++) {
             let row = [];
@@ -32,17 +31,16 @@ function Board(props) {
         }
         return board;
     };
-    
-    useEffect(()=>{
-        setBoard(createBoard())
-    },[])
 
+    useEffect(() => {
+        setBoard(createBoard());
+    }, []);
 
     const flipCellsAround = (coord) => {
         // let { ncols, nrows } = this.props;
         let _board = [...board];
         let [y, x] = coord.split('-').map(Number);
-        console.log(coord,y, x);
+        console.log(coord, y, x);
 
         function flipCell(y, x) {
             if (x >= 0 && x < ncols && y >= 0 && y < nrows) {
@@ -61,11 +59,10 @@ function Board(props) {
         setHasWon(hasWon);
     };
 
-
     const makeTable = () => {
-        if(board.length === 0){
+        if (board.length === 0) {
             return;
-        } 
+        }
         let tblBoard = [];
         for (let y = 0; y < nrows; y++) {
             let row = [];
@@ -85,7 +82,6 @@ function Board(props) {
         console.log(tblBoard);
         console.log(nrows);
 
-
         return (
             <table className="Board">
                 <tbody>{tblBoard}</tbody>
@@ -101,7 +97,7 @@ function Board(props) {
 
     return (
         <div className="BoardDisplay">
-            {hasWon? (
+            {hasWon ? (
                 <div
                     className="Winner"
                     onMouseEnter={() => {

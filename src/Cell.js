@@ -3,7 +3,6 @@ import useSound from 'use-sound';
 import flip from './assets/flip.mp3';
 import './Cell.css';
 
-
 function Cell(props) {
     // constructor(props) {
     //   super(props);
