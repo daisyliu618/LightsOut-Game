@@ -9,7 +9,6 @@
     box-shadow: 0 0 30px #fff, -10px 0 50px #f0f, 10px 0 50px #0ff;
     border-radius: 5px;
     padding: 5px;
-
 }
 
 .MusicDisplay {
@@ -58,5 +57,3 @@
     flex-wrap: wrap;
     justify-content: space-between;
 }
-
-
